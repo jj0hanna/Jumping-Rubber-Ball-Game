@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject starObjectPrefab;
     public static bool gameOver;
     public Text uiDistance;
     public Text uiTime;
