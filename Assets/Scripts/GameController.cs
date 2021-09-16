@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
     {
         if (!gameOver)
         {
+            
             // calculate where the player is at the start and keep track of the meters the player is moving
             distance = Mathf.RoundToInt(player.transform.position.x + 14); 
             uiDistance.text = distance.ToString() + " M";
@@ -44,6 +45,7 @@ public class GameController : MonoBehaviour
             uiTime.text = "Time: " + ((int) time).ToString() ;
 
             uiStars.text = "Stars: " + stars.ToString();
+            
             Time.timeScale = 1;
         }
 
