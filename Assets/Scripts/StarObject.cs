@@ -22,8 +22,9 @@ public class StarObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) // if the star collide with the player do this
         {
+            GameController.stars += 10; // one star = 10 points
             Destroy(gameObject);
         }
     }

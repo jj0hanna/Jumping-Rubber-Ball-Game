@@ -12,7 +12,7 @@ public class LevelController : MonoBehaviour
   
     void Start()
     {
-       LoadTiles();
+       //LoadTiles();
     }
 
     // Update is called once per frame
