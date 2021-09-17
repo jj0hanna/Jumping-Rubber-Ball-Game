@@ -8,12 +8,8 @@ public class StarObject : MonoBehaviour
     private GameObject starObject;
 
     [SerializeField] private float rotationSpeed = 50;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +21,7 @@ public class StarObject : MonoBehaviour
         if (other.CompareTag("Player")) // if the star collide with the player do this
         {
             GameController.stars += 10; // one star = 10 points
+            FindObjectOfType<AudioManager>().PlaySound("CollectStar");
             Destroy(gameObject);
         }
     }

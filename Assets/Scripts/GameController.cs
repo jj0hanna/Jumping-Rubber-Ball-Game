@@ -25,7 +25,6 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         player = GameObject.Find("Player");
         gameOver = false;
         stars = 0;
@@ -47,24 +46,22 @@ public class GameController : MonoBehaviour
             uiStars.text = "Stars: " + stars.ToString();
             
             Time.timeScale = 1;
+            
         }
 
         if (gameOver)
         {
             
             GameOverPanel.SetActive(true);
-            
             score = distance / ((int) time) + stars; // calculate the score
             uiScore.text = "Score: " + score.ToString();
+            
+            
             if (score <= 0)
             {
                 score = 0;
             }
             Time.timeScale = 0;
-            
-            
         }
-
-        
     }
 }
