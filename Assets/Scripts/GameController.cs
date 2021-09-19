@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class GameController : MonoBehaviour
     public Text uiTime;
     public Text uiScore;
     public Text uiStars;
+    public Text uiHighScore;
+    public Text uiNewHighScore;
     
     public static int stars;
 
@@ -23,6 +26,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       // PlayerPrefs.DeleteKey("HighScore");
+        
         AudioManager.PlaySound("IngameMusic");
         AudioManager.StopSound("MenuMusic");
         player = GameObject.Find("Player");
@@ -52,15 +57,27 @@ public class GameController : MonoBehaviour
 
         if (gameOver)
         {
+            Time.timeScale = 0;
             GameOverPanel.SetActive(true);
             score = distance / ((int) time) + stars; // calculate the score
-            uiScore.text = "Score: " + score.ToString();
             
             if (score <= 0)
             {
                 score = 0;
             }
-            Time.timeScale = 0;
+            
+            if (score > PlayerPrefs.GetInt("HighScore",0))
+            {
+                PlayerPrefs.SetInt("HighScore", score);
+                uiHighScore.text = score.ToString();
+                //uiNewHighScore.text = "New high score! ";
+                Debug.Log("YOU BEAT THE HIGHSCORE CONGRATZ!");
+                
+            }
+            
+            uiScore.text = "Your score: " + score.ToString();
+            uiHighScore.text = "High score: " + PlayerPrefs.GetInt("HighScore",0).ToString();
+           
         }
     }
 }

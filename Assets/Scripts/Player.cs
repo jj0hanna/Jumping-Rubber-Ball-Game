@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
        if (transform.position.y < minY) //if player fall off the map, gameover
        {
            GameController.gameOver = true;
+           
            AudioManager.PlaySound("GameOver");
            AudioManager.PlaySound("MenuMusic");
            AudioManager.StopSound("IngameMusic");
