@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    public Transform[] tiles;
-    public Vector3 nextTilePosition;
-    public GameObject player;
-    public float tileDrawDistance;
-    public float tileDeleteDistance;
-  
-    void Start()
-    {
-       //LoadTiles();
-    }
-
+    [SerializeField] private Transform[] tiles;
+    [SerializeField] private Vector3 nextTilePosition;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float tileDrawDistance;
+    [SerializeField] private float tileDeleteDistance;
+    
     // Update is called once per frame
     void Update()
     { 
         RemoveTiles();
-       LoadTiles();
+        LoadTiles();
     }
 
     void LoadTiles()
     {
         while ((nextTilePosition - player.transform.position).x < tileDrawDistance)
         {
+            //load random tilelevels at a specific distance 
             Transform tile = tiles[Random.Range(0, tiles.Length)];
             Transform newPart = Instantiate(tile, nextTilePosition - tile.Find("Start_point").position, tile.rotation,
                 transform);
@@ -38,6 +34,7 @@ public class LevelController : MonoBehaviour
     {
         if (transform.childCount>1)
         {
+            //remove the tile in position 0 when the player is a specific amount of lenght away from it
             Transform tile = transform.GetChild(0);
             Vector3 diff = player.transform.position - tile.position;
 

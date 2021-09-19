@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-   [SerializeField] public Sound[] sounds;
+   [SerializeField] private Sound[] sounds;
    
-   public static AudioManager instance;
+   private static AudioManager instance;
 
    private void Awake()
    {
-    // if (instance == null)
-    //     instance = this;
-    // else
-    // {
-    //     Destroy(gameObject);
-    //     return;
-    // }
-    // DontDestroyOnLoad(gameObject);
+         if (instance == null)
+             instance = this;
+         else
+         {
+             Destroy(gameObject);
+             return;
+         }
+         DontDestroyOnLoad(gameObject);
       
        foreach (Sound s in sounds)
        {
@@ -31,15 +31,29 @@ public class AudioManager : MonoBehaviour
        }
    }
 
-   public void PlaySound(string name)
+   public static void PlaySound(string name)
    {
-       foreach (Sound s in sounds)
+       foreach (Sound s in instance.sounds)
        {
            if (s.name == name)
            {
+               if (s.loop && s.source.isPlaying)
+               {
+                   continue;
+               }
                s.source.Play();
            }
        }
-
    }
+   public static void StopSound(string name)
+   {
+       foreach (Sound s in instance.sounds)
+       {
+           if (s.name == name)
+           {
+               s.source.Stop();
+           }
+       }
+   }
+   
 }

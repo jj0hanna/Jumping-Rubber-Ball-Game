@@ -47,18 +47,24 @@ MonoBehaviour:
   - name: CollectStar
     clip: {fileID: 8300000, guid: 438aa3c1164a6b04c86363d56d293891, type: 3}
     volume: 0.71
-    pitch: 1.89
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GameOver
     clip: {fileID: 8300000, guid: c297746dae6d6864a9cb150569aa13a9, type: 3}
     volume: 0.27
-    pitch: 1.55
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: MainMusic
+  - name: IngameMusic
+    clip: {fileID: 8300000, guid: cf0a92ab1d54d4fa2a81417a540f694b, type: 3}
+    volume: 0.27
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MenuMusic
     clip: {fileID: 8300000, guid: 316a6fc48c47549f681634025e2089f5, type: 3}
     volume: 0.27
-    pitch: 1.55
+    pitch: 1
     loop: 1
     source: {fileID: 0}

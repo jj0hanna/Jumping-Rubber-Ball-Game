@@ -317,13 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f005764fc77e9f4aa06fdb2beb46d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 480632742}
   jumpHeight: 0
   speed: 0
   gravity: 0
   rollForce: 25
   minY: -5
-  gameManager: {fileID: 0}
 --- !u!54 &480632742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1015,7 +1013,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1325844060}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_TargetAssemblyTypeName: MenuEventController, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1119,6 +1117,14 @@ PrefabInstance:
     - target: {fileID: 7746027720233497200, guid: a0baaeea54554ac48bfc02e986541093, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746027720233497201, guid: a0baaeea54554ac48bfc02e986541093, type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746027720233497201, guid: a0baaeea54554ac48bfc02e986541093, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746027720233497202, guid: a0baaeea54554ac48bfc02e986541093, type: 3}
       propertyPath: m_Name

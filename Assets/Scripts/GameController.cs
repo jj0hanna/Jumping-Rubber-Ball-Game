@@ -20,14 +20,15 @@ public class GameController : MonoBehaviour
     private int score;
     private float time;
     
-    
-    
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.PlaySound("IngameMusic");
+        AudioManager.StopSound("MenuMusic");
         player = GameObject.Find("Player");
         gameOver = false;
         stars = 0;
+        
     }
 
     // Update is called once per frame
@@ -51,11 +52,9 @@ public class GameController : MonoBehaviour
 
         if (gameOver)
         {
-            
             GameOverPanel.SetActive(true);
             score = distance / ((int) time) + stars; // calculate the score
             uiScore.text = "Score: " + score.ToString();
-            
             
             if (score <= 0)
             {

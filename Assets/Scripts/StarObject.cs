@@ -9,7 +9,6 @@ public class StarObject : MonoBehaviour
 
     [SerializeField] private float rotationSpeed = 50;
     
-    
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +20,7 @@ public class StarObject : MonoBehaviour
         if (other.CompareTag("Player")) // if the star collide with the player do this
         {
             GameController.stars += 10; // one star = 10 points
-            FindObjectOfType<AudioManager>().PlaySound("CollectStar");
+            AudioManager.PlaySound("CollectStar");
             Destroy(gameObject);
         }
     }
